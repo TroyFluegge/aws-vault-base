@@ -1,0 +1,30 @@
+//--------------------------------------------------------------------
+// Database Resources - Test database for dynamic credentials
+// Not sure if this works...
+
+resource "aws_db_subnet_group" "vault" {
+    name = var.environment_name
+    subnet_ids = module.vpc.private_subnets
+
+    tags = merge(var.default_base_tags, {
+    Name = "${var.environment_name}-dbsn-group"
+  })
+}
+
+resource "aws_db_instance" "vault" {
+  allocated_storage    = 20
+  storage_type         = "gp2"
+  engine               = "mysql"
+  engine_version       = "8.0.20"
+  instance_class       = "db.t2.micro"
+  name                 = replace(var.environment_name, "-", "")
+  identifier           = var.environment_name
+# This cred will be rotated with Vault
+  username             = "vault"
+  password             = "bootstrap"
+  parameter_group_name = "default.mysql8.0"
+  db_subnet_group_name = aws_db_subnet_group.vault.name
+  vpc_security_group_ids = [aws_security_group.vault-sg.id]
+  skip_final_snapshot  = true
+  backup_retention_period = "0"
+}

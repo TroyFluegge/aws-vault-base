@@ -1,0 +1,34 @@
+# AWS EC2 Region
+# default: 'us-east-1'
+# @see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions
+# aws_region = "us-east-2"
+
+# AWS EC2 Availability Zone
+# default: 'us-east-1a'
+# @see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#using-regions-availability-zones-launching
+# availability_zones = ["us-east-2a", "us-east-2b", "us-east-2c"]
+
+# Vault Download Path
+# default: 'oss'
+# If you want Enterprise, don't forget to set this. It will default to 'oss'. You also need to add a license.
+# @see https://releases.hashicorp.com/vault/
+# vault_zip_file = "https://releases.hashicorp.com/vault/1.10.0+ent/vault_1.10.0+ent_linux_amd64.zip"
+
+# Vault license file - Only needed for Enterprise
+# Setting this to a nonexistent file will default to 'oss'
+# default: 'oss'
+# vault_license = "vault.hclic"
+
+# Specify a name here to tag all instances
+# default: 'vault-demo'
+# environment_name = "vault-demo"
+
+# Override default server names
+# vault_server_names = ["node_1", "node_2", "node_3"]
+
+# Base tags for all resources
+default_base_tags = {
+  owner   = "FirstName LastName"
+  contact = "me@mydomain.com"
+  TTL     = "-1"
+}
