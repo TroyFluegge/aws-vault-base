@@ -54,30 +54,30 @@ These assets are provided to perform the tasks described in the [Vault HA Cluste
 
     Example:
 
-    ```
-  NOTE: Post provisioning steps will continue to run even though Terraform has completed
-        The log will report 'Complete' when Vault is ready.
+    ```plaintext
+    NOTE: Post provisioning steps will continue to run even though Terraform has completed
+          The log will report 'Complete' when Vault is ready.
 
-  Terraform Version: vault.hclic - https://releases.hashicorp.com/vault/1.10.0+ent/vault_1.10.0+ent_linux_amd64.zip
+    Terraform Version: vault.hclic - https://releases.hashicorp.com/vault/1.10.0+ent/vault_1.10.0+ent_linux_amd64.zip
 
-  (Leader) node_1 (18.117.168.75) | internal: (10.0.1.10)
-    Tail the log...
-      $ ssh -l ubuntu 18.117.168.75 -i ~/.ssh/vault-demo.pem tail -f /var/log/tf-user-data.log
-    Verify all raft peers...
-      $ ssh -l ubuntu 18.117.168.75 -i ~/.ssh/vault-demo.pem vault operator raft list-peers
-    Your root token...
-      $ ssh -l ubuntu 18.117.168.75 -i ~/.ssh/vault-demo.pem cat /tmp/key.json|jq .root_token
+    (Leader) node_1 (18.117.168.75) | internal: (10.0.1.10)
+      Tail the log...
+        $ ssh -l ubuntu 18.117.168.75 -i ~/.ssh/vault-demo.pem tail -f /var/log/tf-user-data.log
+      Verify all raft peers...
+        $ ssh -l ubuntu 18.117.168.75 -i ~/.ssh/vault-demo.pem vault operator raft list-peers
+      Your root token...
+        $ ssh -l ubuntu 18.117.168.75 -i ~/.ssh/vault-demo.pem cat /tmp/key.json|jq .root_token
 
-  (Standby) node_2 (18.188.131.30) | internal: (10.0.2.10)
-    Tail the log...
-      $ ssh -l ubuntu 18.188.131.30 -i ~/.ssh/vault-demo.pem tail -f /var/log/tf-user-data.log
+    (Standby) node_2 (18.188.131.30) | internal: (10.0.2.10)
+      Tail the log...
+        $ ssh -l ubuntu 18.188.131.30 -i ~/.ssh/vault-demo.pem tail -f /var/log/tf-user-data.log
 
-  (Standby) node_3 (3.138.107.179) | internal: (10.0.3.10)
-    Tail the log...
-      $ ssh -l ubuntu 3.138.107.179 -i ~/.ssh/vault-demo.pem tail -f /var/log/tf-user-data.log
+    (Standby) node_3 (3.138.107.179) | internal: (10.0.3.10)
+      Tail the log...
+        $ ssh -l ubuntu 3.138.107.179 -i ~/.ssh/vault-demo.pem tail -f /var/log/tf-user-data.log
 
-  You may need to wait a few minutes for instance registration...
-    NLB URL: http://vault-demo-lb-b9d7a60d49090976.elb.us-east-2.amazonaws.com:8200
+    You may need to wait a few minutes for instance registration...
+      NLB URL: http://vault-demo-lb-b9d7a60d49090976.elb.us-east-2.amazonaws.com:8200
     ```
 
 # Clean up the cloud resources
