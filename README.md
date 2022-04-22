@@ -54,7 +54,7 @@ These assets are provided to perform the tasks described in the [Vault HA Cluste
 
     Example:
 
-    ```plaintext
+    ```
   NOTE: Post provisioning steps will continue to run even though Terraform has completed
         The log will report 'Complete' when Vault is ready.
 
