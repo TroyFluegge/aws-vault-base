@@ -13,7 +13,7 @@ These assets are provided to perform the tasks described in the [Vault HA Cluste
     $ export AWS_SECRET_ACCESS_KEY = "<YOUR_AWS_SECRET_ACCESS_KEY>"
     ```
 
-1.  Use the provided `terraform.tfvars` as a base.
+1.  Use the provided `terraform.tfvars.example` as a base.
 
     Example:
 
